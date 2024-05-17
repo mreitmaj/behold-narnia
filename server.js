@@ -1,5 +1,5 @@
-const express = require('express');
-const mongoose = require('mongoose');
+const express = require("express");
+const mongoose = require("mongoose");
 const app = express();
 const PORT = process.env.PORT || 5000;
 
@@ -7,13 +7,17 @@ const PORT = process.env.PORT || 5000;
 app.use(express.json());
 
 // Connect to MongoDB
-mongoose.connect('mongodb://localhost:27017/mern-app', { useNewUrlParser: true, useUnifiedTopology: true })
-  .then(() => console.log('MongoDB connected'))
-  .catch(err => console.error(err));
+mongoose
+  .connect("mongodb://localhost:27017/behold-narnia", {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  })
+  .then(() => console.log("MongoDB connected"))
+  .catch((err) => console.error(err));
 
 // Basic route
-app.get('/', (req, res) => {
-  res.send('Hello, MERN!');
+app.get("/", (req, res) => {
+  res.send("Hello, MERN!");
 });
 
 app.listen(PORT, () => {
